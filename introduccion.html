@@ -1,0 +1,816 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Un ejemplo cliente/servidor [Kotlin Android] / [NestJS]">
+      
+      
+        <meta name="author" content="Serge Tahé">
+      
+      
+        <link rel="canonical" href="https://stahe.github.io/ales-kotlin-android-nestjs-oct-2026/introduccion.html">
+      
+      
+        <link rel="prev" href="index.html">
+      
+      
+        <link rel="next" href="capitulo-1---configuracion-del-entorno-de-trabajo.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>1. Introducción - Un ejemplo cliente/servidor [Kotlin Android] / [NestJS]</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="stylesheets/focus.css">
+    
+      <link rel="stylesheet" href="stylesheets/bidi.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EBZC3JVJNR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    var siteName = "Un ejemplo cliente/servidor [Kotlin Android] / [NestJS]";
+    gtag('config', 'G-EBZC3JVJNR', {
+        'page_title': siteName
+    });
+  </script>
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1-introduccion" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="Un ejemplo cliente/servidor [Kotlin Android] / [NestJS]" class="md-header__button md-logo" aria-label="Un ejemplo cliente/servidor [Kotlin Android] / [NestJS]" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Un ejemplo cliente/servidor [Kotlin Android] / [NestJS]
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              1. Introducción
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="purple"  aria-label="Cambiar a modo oscuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo oscuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="purple"  aria-label="Cambiar a modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://stahe.github.io/ales-kotlin-android-nestjs-oct-2026" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="Un ejemplo cliente/servidor [Kotlin Android] / [NestJS]" class="md-nav__button md-logo" aria-label="Un ejemplo cliente/servidor [Kotlin Android] / [NestJS]" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Un ejemplo cliente/servidor [Kotlin Android] / [NestJS]
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://stahe.github.io/ales-kotlin-android-nestjs-oct-2026" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bienvenido
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Introducción
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="introduccion.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Introducción
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#11-una-reconstruccion-paso-a-paso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1. Una reconstrucción paso a paso
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-a-quien-va-dirigido-este-documento" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2. A quién va dirigido este documento
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-la-arquitectura-de-la-aplicacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3. La arquitectura de la aplicación
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-herramientas-utilizadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4. Herramientas utilizadas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15-funcionalidades-de-la-aplicacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.5. Funcionalidades de la aplicación
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16-que-cambio-y-que-no" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.6. Qué cambió y qué no
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#17-organizacion-de-este-documento" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.7. Organización de este documento
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="capitulo-1---configuracion-del-entorno-de-trabajo.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Capítulo 1 - Configuración del entorno de trabajo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="capitulo-2---instalacion-del-servidor-nestjs.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Capítulo 2 - Instalación del servidor [NestJS]
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="capitulo-3---introduccion-a-android-y-a-jetpack-compose.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Capítulo 3 - Introducción a Android y a Jetpack Compose
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="capitulo-4---el-cliente-kotlin-de-la-aplicacion-rdvmedecins.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Capítulo 4 - El cliente Kotlin de la aplicación RdvMedecins
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="capitulo-5---ejecucion-de-la-aplicacion-emulador-telefono-apk.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Capítulo 5 - Ejecución de la aplicación: emulador, teléfono, APK
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="capitulo-6---conclusion-y-proximos-pasos.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Capítulo 6 - Conclusión y próximos pasos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<p><span id="introduction" name="introduction" class="odt-bookmark-anchor"></span></p>
+<h1 id="1-introduccion">1. <span style="color: #2e74b5">Introducción</span></h1>
+<p>El PDF del documento está |<a href="https://1drv.ms/b/c/f53a919f43d27eb5/IQAxblQCsnZ-Rq5aIYUT_a6_ARD42M6TXrwILBl-KK0QY9s">AQUÍ</a>|.</p>
+<p>El código de este documento está |<a href="https://1drv.ms/u/c/f53a919f43d27eb5/IQCbm5e0Nk4vRr6Zbrt_J4XTAYWLa2_jSL9w9LP5F0AMZAE">AQUÍ</a>|.</p>
+<p>Este documento es un producto de Claude, la IA de Anthropic. Su propósito es adaptar el documento <a href="https://stahe.github.io/ales-spring-angular1.x-juillet-2014/"><u><span style="color: #0563c1">“Un ejemplo cliente/servidor - AngularJS 1.x / Spring 4”</span></u></a> de dos maneras:</p>
+<ul>
+<li>el cliente AngularJS 1.x se reemplaza por una aplicación Android nativa escrita en <em>[Kotlin]</em> con <em>[Jetpack Compose]</em>;</li>
+<li>el framework web Java Spring MVC se reemplaza por el framework web <em>[NestJS]</em>;</li>
+</ul>
+<p>Para ello, sigue, capítulo por capítulo, el documento <a href="https://stahe.github.io/ales-flutter-nestjs-sept-2026/"><u><span style="color: #0563c1">“Un ejemplo cliente/servidor - Flutter / NestJS (2026)</span></u></a>”: mismo servidor, misma base de datos, misma arquitectura del cliente; solo cambia el framework del cliente, ya que Flutter (Dart) se reemplaza por Jetpack Compose (Kotlin).</p>
+<p>Claude, de Anthropic (IA), hizo la mayor parte del trabajo:</p>
+<ul>
+<li>generación del código: Claude generó todo el código del cliente Kotlin. Lo compiló y lo probó él mismo en un emulador de Android en la computadora del revisor, con su autorización; las capturas de pantalla del emulador se tomaron durante estas pruebas;</li>
+<li>generación del curso en formato ODT: Claude generó el documento, que el revisor leyó y probó siguiéndolo paso a paso.</li>
+</ul>
+<p>Nota 1: Si el objetivo principal del lector es “aprender NestJS”, hay una introducción a este framework web en el documento <a href="https://stahe.github.io/ales-typescript-nestjs-sept-2026/"><u><span style="color: #0563c1">Introducción al lenguaje TypeScript y al framework web NestJS mediante ejemplos</span></u></a>. En este documento, el servidor NestJS se trata como una caja negra. Se explica cómo usarlo, pero no se describe su código.</p>
+<p>Nota 2: El lenguaje de programación utilizado en este documento es <em>[Kotlin]</em>. Se supone que se conocen sus fundamentos (clases, clases de datos, nulabilidad, lambdas, funciones de extensión, colecciones, etc.): se tratan en el <a href="https://stahe.github.io/ales-kotlin-oct-2026/"><u><span style="color: #0563c1">curso de Kotlin</span></u></a>. Los conceptos propios de Android o de Jetpack Compose, así como las corrutinas, se explican a lo largo del documento.</p>
+<p>Nota 3: Claude se refiere con frecuencia al cliente <em>[Flutter]</em> del curso <a href="https://stahe.github.io/ales-flutter-nestjs-sept-2026/"><u><span style="color: #0563c1">“Un ejemplo cliente/servidor - Flutter / NestJS” (2026)</span></u></a>, del cual este documento es una adaptación, y a veces a los clientes web <a href="https://stahe.github.io/ales-angular-nestjs-sept-2026/"><u><span style="color: #0563c1">Angular</span></u></a>, <a href="https://stahe.github.io/ales-react-nestjs-sept-2026/"><u><span style="color: #0563c1">React</span></u></a> y <a href="https://stahe.github.io/ales-vuejs-nestjs-sept-2026/"><u><span style="color: #0563c1">Vue.js</span></u></a> de la misma aplicación. Estas comparaciones ayudan a los lectores que conocen alguno de estos frameworks, pero no es necesario conocer ninguno para seguir este documento.</p>
+<p>Nota 4: Si considera que las explicaciones de Claude no son suficientes, envíele una solicitud pidiendo aclaraciones sobre un punto específico de su curso. Esto suele ser útil.</p>
+<p>Serge Tahé, octubre de 2026</p>
+<p>==</p>
+<p>Este documento es una continuación del curso <a href="https://stahe.github.io/ales-spring-angular1.x-juillet-2014/"><u><span style="color: #0563c1">“Un ejemplo cliente/servidor - AngularJS 1.x / Spring 4</span></u></a>,<a href="https://stahe.github.io/ales-spring-angular1.x-juillet-2014/"><u><span style="color: #0563c1">”</span></u></a> escrito en 2014. Ese documento original construía una pequeña aplicación para la gestión de citas médicas (“[RdvMedecins]”) con un servidor Spring 4 / Spring Data / Spring MVC y un cliente AngularJS 1.x.</p>
+<p>Doce años después, los dos frameworks utilizados han evolucionado de manera significativa, o incluso han sido reemplazados en el uso común:</p>
+<ul>
+<li>del lado del servidor, <em>[NestJS]</em> se ha consolidado como uno de los frameworks Node.js/TypeScript más utilizados para construir aplicaciones web estructuradas, con una filosofía similar a la de Spring (módulos, controladores, servicios, inyección de dependencias);</li>
+<li>del lado del cliente, cada vez se accede más a las aplicaciones desde un teléfono. Por ello, este documento describe una aplicación Android NATIVA: escrita en <em>[Kotlin]</em>, el lenguaje recomendado por Google para Android desde 2019, y con una interfaz descrita mediante <em>[Jetpack Compose]</em>, la biblioteca de interfaz de usuario declarativa de Android (estable desde 2021), que reemplaza el antiguo sistema de vistas descritas en XML.</li>
+</ul>
+<p>El objetivo de este documento es retomar el caso de estudio original (la misma aplicación, las mismas funcionalidades, la misma base de datos) y reconstruirlo con las herramientas actuales, manteniendo en la medida de lo posible la misma progresión didáctica del documento de 2014 y de su variante Flutter de 2026.</p>
+<h2 id="11-una-reconstruccion-paso-a-paso">1.1. <span style="color: #2e74b5">Una reconstrucción paso a paso</span></h2>
+<p>El documento original tenía aproximadamente 300 páginas y cubría, además de la funcionalidad central de la aplicación y la autenticación basada en roles (Spring Security), doce ejemplos progresivos para aprender AngularJS 1.x paso a paso. Al igual que la variante Flutter, este documento cubre:</p>
+<ul>
+<li>la arquitectura general de la aplicación (sin cambios en lo esencial);</li>
+<li>la base de datos (sin cambios, salvo por el agregado de la tabla [users]);</li>
+<li>la instalación del servidor <em>[NestJS]</em> completo, cuyas funcionalidades de consulta y de reserva/cancelación de citas se prueban con Postman; su código no se trata aquí;</li>
+<li>la autenticación basada en tokens (JWT) y el control de acceso basado en roles (ADMIN/USER) de este servidor; solo aprenderemos a usarlos, primero mediante Postman y luego mediante el cliente;</li>
+<li>el cliente Android correspondiente, con las mismas funcionalidades, una pantalla de inicio de sesión, una interfaz adaptada al rol del usuario conectado (Material Design 3) y la posibilidad de cambiar la interfaz entre francés e inglés (<em>[TranslationsService]</em>).</li>
+</ul>
+<p>En este documento se omiten dos funcionalidades del documento original, igual que en la versión Flutter: el modo “debug” del cliente original, que se dejó fuera deliberadamente (véase el capítulo 6), y la configuración de un retardo de red artificial, que se pospuso para una etapa posterior.</p>
+<h2 id="12-a-quien-va-dirigido-este-documento">1.2. <span style="color: #2e74b5">A quién va dirigido este documento</span></h2>
+<p>Este documento no supone conocimientos previos de Android, de Jetpack Compose ni de <em>[NestJS]</em>. Cada concepto nuevo (activity, función @Composable, estado, ViewModel, corrutina, interceptor HTTP, etc.) se explica a medida que aparece. Sin embargo, algunos conocimientos básicos siguen siendo útiles:</p>
+<ul>
+<li>un conocimiento básico del lenguaje Kotlin (véase el <a href="https://stahe.github.io/ales-kotlin-oct-2026/"><u><span style="color: #0563c1">curso de Kotlin</span></u></a>);</li>
+<li>un conocimiento básico de los intercambios HTTP (métodos GET/POST, formato JSON);</li>
+<li>experiencia en el uso de la línea de comandos (cd, npm install...).</li>
+</ul>
+<p>No se requiere conocer Flutter: las numerosas comparaciones con el cliente Flutter están pensadas para los lectores que han seguido ese curso, pero cada concepto se explica primero por sí mismo.</p>
+<h2 id="13-la-arquitectura-de-la-aplicacion">1.3. <span style="color: #2e74b5">La arquitectura de la aplicación</span></h2>
+<p>La arquitectura general de la aplicación no ha cambiado desde el documento original:</p>
+<ul>
+<li>el cliente presenta al usuario una única interfaz, construida sobre el modelo de Componentes (vista + lógica asociada), que se apoya en servicios para comunicarse con el servidor; en este caso, una aplicación Android que se ejecuta en el sistema del teléfono;</li>
+<li>el usuario interactúa con las pantallas de la aplicación. Las acciones del usuario a veces requieren enviar una solicitud al servidor <em>[NestJS]</em>, que la procesa y devuelve una respuesta JSON; esta respuesta se utiliza para actualizar la pantalla que se muestra al usuario.</li>
+</ul>
+<p>La aplicación estudiada tendrá la siguiente arquitectura:</p>
+<p><img src="images/10000000000003790000030907E1F5D7.png" width="529" height="462" style="width:14cm;height:12.236cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003790000030907E1F5D7.png" /></p>
+<ul>
+<li>En [1], el usuario de la aplicación Android consulta la capa [Presentation] [2] de la aplicación;</li>
+<li>para ejecutar la acción solicitada por el usuario, la capa [Presentation] [2] puede consultar la capa [Services] [3];</li>
+<li>Para prestar el servicio solicitado, la capa [3] puede necesitar consultar [4], el servidor JSON remoto implementado con <em>[NestJS]</em>;</li>
+<li>Según la solicitud recibida en [5], pueden consultarse las capas [6-8];</li>
+<li>la respuesta del servidor recorre las capas [2-8] en orden inverso;</li>
+<li>la pantalla que se muestra al usuario ([1]) refleja esta respuesta.</li>
+</ul>
+<p>Nota: Si la arquitectura del proyecto le resulta confusa, vuelva a consultar este diagrama. Tenga en cuenta que el SGBD lo gestiona el servidor, no el cliente.</p>
+<h2 id="14-herramientas-utilizadas">1.4. <span style="color: #2e74b5">Herramientas utilizadas</span></h2>
+<p>Este documento utiliza las siguientes herramientas (su instalación se detalla en los capítulos 1 y 2):</p>
+<ul>
+<li>Node.js (versión 22 o posterior) y npm, para ejecutar el servidor <em>[NestJS]</em>;</li>
+<li><em>[Android Studio]</em>, el entorno de desarrollo de Google para Android. Proporciona todo lo que el cliente necesita: el editor de código (basado en IntelliJ IDEA), el Android SDK, un JDK (el JetBrains Runtime), el emulador de Android y la herramienta de compilación <em>[Gradle]</em>. A diferencia del curso de Flutter, donde Android Studio se usaba solo para instalar el Android SDK, aquí sirve como editor del cliente;</li>
+<li>Visual Studio Code (u otro editor) para el servidor NestJS, si desea ver su código;</li>
+<li><em>[MySQL]</em> 8 para la base de datos, instalado con Laragon;</li>
+<li>Postman (u otro cliente HTTP) para probar las URL del servidor;</li>
+<li>un teléfono Android (opcional): un emulador basta para seguir todo este documento.</li>
+</ul>
+<h2 id="15-funcionalidades-de-la-aplicacion">1.5. <span style="color: #2e74b5">Funcionalidades de la aplicación</span></h2>
+<p>Las funcionalidades “de negocio” de la aplicación <em>[RdvMedecins]</em> son las mismas que las de las versiones anteriores:</p>
+<ul>
+<li>un consultorio médico emplea a varios médicos, cada uno con sus propias franjas horarias de consulta;</li>
+<li>un usuario debe iniciar sesión (nombre de usuario/contraseña) para acceder a la aplicación;</li>
+<li>una vez iniciada la sesión, el usuario puede seleccionar un médico y un día, y ver la agenda del médico para ese día: cada franja horaria aparece como disponible o reservada;</li>
+<li>un usuario con el rol ADMIN también puede reservar una franja horaria disponible para un paciente de su elección y cancelar una cita existente;</li>
+<li>un usuario con el rol USER puede ver las agendas, pero no puede reservar ni cancelar citas (acceso de solo lectura).</li>
+</ul>
+<p><img src="images/100000000000021C000004B07CBCFF0D.png" width="227" height="504" style="width:6.001cm;height:13.333cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000021C000004B07CBCFF0D.png" /></p>
+<p><img src="images/100000000000021C000004B079C85BE7.png" width="227" height="504" style="width:6.001cm;height:13.333cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000021C000004B079C85BE7.png" /></p>
+<p>Arriba se muestra la aplicación en el emulador de Android: la pantalla de inicio de sesión, luego la agenda de un médico y, por último, la pantalla después de reservar una franja horaria.</p>
+<h2 id="16-que-cambio-y-que-no">1.6. <span style="color: #2e74b5">Qué cambió y qué no</span></h2>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><i><b>Documento original (2014)</b></i></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><i><b>Variante Flutter (2026)</b></i></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><i><b>Este documento (2026)</b></i></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div markdown="block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Database
+</code></pre></div>
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">MySQL 5</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">MySQL 8, mismas tablas</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">idéntico a la variante Flutter</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div markdown="block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Server
+</code></pre></div>
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">Java, Spring 4</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">TypeScript, NestJS</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">mismo servidor NestJS</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div markdown="block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Client
+</code></pre></div>
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">JavaScript, AngularJS 1.x</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">Dart, Flutter (móvil, escritorio, web)</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">Kotlin, Jetpack Compose (Android)</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div markdown="block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Client execution
+</code></pre></div>
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">navegador</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">código nativo compilado por Flutter</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">máquina virtual de Android (ART)</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div markdown="block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Build
+</code></pre></div>
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">Bower</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">Flutter / Pub</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">Gradle</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div markdown="block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Authentication
+</code></pre></div>
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">Spring Security, HTTP Basic</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">Passport/JWT</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">Passport/JWT (mismo servidor)</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div markdown="block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>FR/EN internationalization
+</code></pre></div>
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">angular-translate</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">TranslationsService (hecho a mano)</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">TranslationsService (hecho a mano, mismos diccionarios)</div></td></tr></table>
+
+<h2 id="17-organizacion-de-este-documento">1.7. <span style="color: #2e74b5">Organización de este documento</span></h2>
+<ul>
+<li>Capítulo 1 - Configuración del entorno de trabajo: instalar Android Studio y el SDK de Android, abrir el proyecto del cliente, crear un emulador y preparar un teléfono.</li>
+<li>Capítulo 2 - Instalación del servidor <em>[NestJS]</em>: instalar Laragon y la base de datos MySQL, configurar, iniciar y probar el servidor, y luego ejecutar el cliente por primera vez.</li>
+<li>Capítulo 3 - Introducción a Android y a Jetpack Compose: activities, funciones @Composable, estado y recomposición, CompositionLocal, corrutinas, ciclo de vida y ViewModel, con el equivalente en Flutter de cada uno.</li>
+<li>Capítulo 4 - El cliente Kotlin de la aplicación <em>[RdvMedecins]</em>: la arquitectura del cliente, cada uno de sus archivos y un recorrido paso a paso por la aplicación completa.</li>
+<li>Capítulo 5 - Ejecución de la aplicación: emulador, teléfono, APK, y lo que debe saber sobre la red, el tráfico HTTP sin cifrar, la rotación de la pantalla y las pantallas estrechas; por último, lo que haría falta para dirigirse también a iOS, el escritorio y la web.</li>
+<li>Capítulo 6 - Conclusión y próximos pasos.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner">
+
+      <div>
+        <a href="https://stahe.github.io" target="_blank">
+          https://stahe.github.io
+        </a>
+        <br>
+        Este curso, escrito por la IA <strong>Claude</strong> de Anthropic a petición de <strong>Serge Tahé</strong>, se pone a disposición del público bajo los términos de la
+        <em>licencia Creative Commons Atribución – No Comercial –
+        Compartir Igual 3.0 No adaptada</em>.
+
+      </div>
+
+    </div>
+  </div>
+
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.sections", "navigation.indexes", "navigation.expand", "toc.integrate", "navigation.top"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="javascripts/focus.js"></script>
+      
+    
+  </body>
+</html>
